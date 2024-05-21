@@ -7,12 +7,12 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#14bfff",
+    "light": "#14bfff",
+    "dark": "#14bfff",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#14bfff",
+      "to": "#14bfff"
     }
   },
   "topbarLinks": [
@@ -43,24 +43,52 @@
     },
     {
       "name": "Dashboard",
-      "icon": "home",
+      "icon": "house",
       "url": "https://app.precallai.com/"
     }
   ],
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "pages": ["introduction", "ai-features"]
     },
     {
-      "group": "Essentials",
+      "group": "General",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        {
+          "group": "Assistants",
+          "pages": [
+            "general/assistants/introduction",
+            "general/assistants/createAssistant",
+            "general/assistants/testAssistant",
+            "general/assistants/script",
+            "general/assistants/playground",
+            "general/assistants/goal"
+          ]
+        },
+        {
+          "group": "Phone Numbers",
+          "pages": [
+            "general/phonenumber/introduction",
+            "general/phonenumber/integratePhonenumber"
+          ]
+        },
+        "general/inboundAssistant",
+        {
+          "group": "Contact List",
+          "pages": [
+            "general/contactList/introduction",
+            "general/contactList/addContacts",
+            "general/contactList/modifyContacts"
+          ]
+        },
+        {
+          "group": "Campaigns",
+          "pages": [
+            "general/campaigns/introduction",
+            "general/campaigns/statesCampaign"
+          ]
+        }
       ]
     },
     {
