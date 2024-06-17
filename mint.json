@@ -67,10 +67,10 @@
           ]
         },
         {
-          "group": "Phone Numbers",
+          "group": "Dialers",
           "pages": [
-            "general/phonenumber/introduction",
-            "general/phonenumber/integratePhonenumber"
+            "general/dialer/introduction",
+            "general/dialer/integrateDialer"
           ]
         },
         "general/inboundAssistant",
@@ -106,7 +106,7 @@
   ],
   "footerSocials": {
     "facebook": "https://www.facebook.com/profile.php?id=61558206635365",
-    "twitter": "https://twitter.com/pre_ai2167",
+    "twitter": "https://twitter.com/precallai",
     "instagram": "https://www.instagram.com/precallai/",
     "youtube": "https://www.youtube.com/@PreCallA"
   }
