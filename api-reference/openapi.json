@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
+    "title": "PreCallAi API",
+    "description": "A sample API that uses a campaign store as an example to demonstrate features in the OpenAPI specification",
     "license": {
       "name": "MIT"
     },
@@ -10,7 +10,7 @@
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "https://api.precallai.com/api/v1"
     }
   ],
   "security": [
@@ -19,29 +19,18 @@
     }
   ],
   "paths": {
-    "/plants": {
+    "/campaign/list": {
       "get": {
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
+        "description": "Returns all campaigns from the system that the user has access to",
         "responses": {
           "200": {
-            "description": "Plant response",
+            "description": "Campaign response",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Plant"
+                    "$ref": "#/components/schemas/Campaign"
                   }
                 }
               }
@@ -58,15 +47,17 @@
             }
           }
         }
-      },
+      }
+    },
+    "/campaign": {
       "post": {
-        "description": "Creates a new plant in the store",
+        "description": "Creates a new Campaign",
         "requestBody": {
-          "description": "Plant to add to the store",
+          "description": "Campaign to add",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlant"
+                "$ref": "#/components/schemas/CampaignNew"
               }
             }
           },
@@ -74,11 +65,11 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "Campaign response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/Campaign"
                 }
               }
             }
@@ -96,14 +87,120 @@
         }
       }
     },
-    "/plants/{id}": {
+    "/user/listAssistant": {
+      "get": {
+        "description": "Returns all assistants from the system that the user has access to",
+        "responses": {
+          "200": {
+            "description": "Assistant response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Assistant"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/createAssistant": {
+      "post": {
+        "description": "Creates a new Assistant",
+        "requestBody": {
+          "description": "Assistant to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewAssistant"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Assistant response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Assistant"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/updateAssistant?id={id}": {
+      "put": {
+        "description": "Update a Assistant",
+        "requestBody": {
+          "description": "Assistant to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAssistant"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Assistant response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Assistant"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/deleteassistant?id={id}": {
       "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
+        "description": "Deletes a single assistant based on the ID supplied",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID of plant to delete",
+            "description": "ID of assistant to delete",
             "required": true,
             "schema": {
               "type": "integer",
@@ -113,8 +210,355 @@
         ],
         "responses": {
           "204": {
-            "description": "Plant deleted",
+            "description": "Assistant deleted",
             "content": {}
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dialer/list": {
+      "get": {
+        "description": "Returns all dialers from the system that the user has access to",
+        "responses": {
+          "200": {
+            "description": "Dialer response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Dialer"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dialer/create": {
+      "post": {
+        "description": "Creates a new Dialer",
+        "requestBody": {
+          "description": "Dialer to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewDialer"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Dialer response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dialer"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dialer/update?id={id}": {
+      "put": {
+        "description": "Update a Dialer",
+        "requestBody": {
+          "description": "Dialer to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDialer"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Dialer response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Assistant"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dialer/delete?id={id}": {
+      "delete": {
+        "description": "Deletes a single dialer based on the ID supplied",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of dialer to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Dialer deleted",
+            "content": {}
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contact/list": {
+      "get": {
+        "description": "Returns all Contacts from the system that the user has access to",
+        "responses": {
+          "200": {
+            "description": "Contact response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Contact"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contact/create": {
+      "post": {
+        "description": "Creates a new Contact",
+        "requestBody": {
+          "description": "Contact to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewContact"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Contact response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contact"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contact/update?id={id}": {
+      "put": {
+        "description": "Update a Contact",
+        "requestBody": {
+          "description": "Contact to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateContact"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Contact response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contact"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contact/delete?id={id}": {
+      "delete": {
+        "description": "Deletes a single contact based on the ID supplied",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of contact to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Contact deleted",
+            "content": {}
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/playground/list": {
+      "get": {
+        "description": "Returns all playgrounds from the system that the user has access to",
+        "responses": {
+          "200": {
+            "description": "Playground response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Playground"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/playground/call": {
+      "post": {
+        "description": "Creates a new Playground",
+        "requestBody": {
+          "description": "Playground to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPlayground"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Playground response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Playground"
+                }
+              }
+            }
           },
           "400": {
             "description": "unexpected error",
@@ -132,35 +576,415 @@
   },
   "components": {
     "schemas": {
-      "Plant": {
+      "Campaign": {
+        "required": ["campaigns_name"],
+        "type": "object",
+        "properties": {
+          "campaigns_name": {
+            "description": "The name of the campaign",
+            "type": "string"
+          },
+          "assistant_name": {
+            "description": "The name of the assistant",
+            "type": "string"
+          },
+          "contact_name": {
+            "description": "The name of the contact",
+            "type": "string"
+          },
+          "dialer_name": {
+            "description": "The name of the dialer",
+            "type": "string"
+          },
+          "dialer_type": {
+            "description": "The type of the dialer",
+            "type": "string"
+          },
+          "phone_number": {
+            "description": "phone number",
+            "type": "string"
+          },
+          "started_at": {
+            "description": "started date",
+            "type": "string"
+          },
+          "is_started": {
+            "description": "Is started",
+            "type": "boolean"
+          },
+          "is_automation": {
+            "description": "Is automation",
+            "type": "boolean"
+          }
+        }
+      },
+      "CampaignNew": {
         "required": [
-          "name"
+          "campaigns_name",
+          "assistant_id",
+          "contacts_id",
+          "dialer_id"
         ],
         "type": "object",
         "properties": {
-          "name": {
-            "description": "The name of the plant",
+          "campaigns_name": {
+            "description": "The name of the campaign",
             "type": "string"
           },
-          "tag": {
-            "description": "Tag to specify the type",
+          "assistant_id": {
+            "description": "The id of the assistant",
+            "type": "string"
+          },
+          "contacts_id": {
+            "description": "The id of the contact",
+            "type": "string"
+          },
+          "dialer_id": {
+            "description": "The id of the dialer",
+            "type": "string"
+          },
+          "scheduled_at": {
+            "description": "Scheduled date",
+            "type": "string"
+          },
+          "is_automation": {
+            "description": "Is automation",
+            "type": "boolean"
+          }
+        }
+      },
+      "NewCampaign": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CampaignNew"
+          },
+          {
+            "required": ["id"],
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identification number of the campaign",
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "Assistant": {
+        "required": ["name"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "Type of assistant",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the assistant",
+            "type": "string"
+          },
+          "company_name": {
+            "description": "The name of the company",
+            "type": "string"
+          },
+          "gender": {
+            "description": "The gender",
+            "type": "string"
+          },
+          "accent": {
+            "description": "The accent",
+            "type": "string"
+          },
+          "actions": {
+            "description": "The actions",
+            "type": "array"
+          },
+          "goal": {
+            "description": "The goal of the assistant",
+            "type": "string"
+          },
+          "start_speech": {
+            "description": "Start speech",
+            "type": "string"
+          },
+          "voice_id": {
+            "description": "Voice id",
+            "type": "string"
+          },
+          "voice_name": {
+            "description": "Voice name",
+            "type": "string"
+          },
+          "voice_note": {
+            "description": "Voice note",
+            "type": "string"
+          },
+          "zapier_hook": {
+            "description": "Zapier hook",
+            "type": "string"
+          },
+          "script": {
+            "description": "Script",
+            "type": "string"
+          },
+          "knowledge_base_Id": {
+            "description": "Knowledge base",
+            "type": "string"
+          },
+          "maximum_time_per_call": {
+            "description": "Maximum time per call",
+            "type": "number"
+          },
+          "is_recording": {
+            "description": "Is recording",
+            "type": "boolean"
+          },
+          "is_voice_note": {
+            "description": "Is voice note",
+            "type": "boolean"
+          }
+        }
+      },
+      "NewAssistant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Assistant"
+          },
+          {
+            "required": ["id"],
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identification number of the assistant",
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "UpdateAssistant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Assistant"
+          },
+          {
+            "required": ["id"],
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identification number of the assistant",
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "Dialer": {
+        "required": [
+          "dialer_type",
+          "name",
+          "phone_number",
+          "sid",
+          "auth_token"
+        ],
+        "type": "object",
+        "properties": {
+          "dialer_type": {
+            "description": "Dialer type",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the dialer",
+            "type": "string"
+          },
+          "phone_number": {
+            "description": "Phone number",
+            "type": "string"
+          },
+          "sid": {
+            "description": "The sid",
+            "type": "string"
+          },
+          "auth_token": {
+            "description": "Auth token",
             "type": "string"
           }
         }
       },
-      "NewPlant": {
+      "NewDialer": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/Plant"
+            "$ref": "#/components/schemas/Dialer"
           },
           {
-            "required": [
-              "id"
-            ],
+            "required": ["id"],
             "type": "object",
             "properties": {
               "id": {
-                "description": "Identification number of the plant",
+                "description": "Identification number of the Dialer",
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "UpdateDialer": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Dialer"
+          },
+          {
+            "required": ["id"],
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identification number of the Dialer",
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "Contact": {
+        "required": ["name", "description"],
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "The name of the Contact",
+            "type": "string"
+          },
+          "description": {
+            "description": "The description of the Contact",
+            "type": "string"
+          }
+        }
+      },
+      "NewContact": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Contact"
+          },
+          {
+            "required": ["id"],
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identification number of the Contact",
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "UpdateContact": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Contact"
+          },
+          {
+            "required": ["id"],
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identification number of the Contact",
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+
+      "Playground": {
+        "required": ["phone_number"],
+        "type": "object",
+        "properties": {
+          "phone_number": {
+            "description": "Phone numbers",
+            "type": "array"
+          },
+          "language": {
+            "description": "Language",
+            "type": "string"
+          },
+          "is_start_speech_update": {
+            "description": "false",
+            "type": "boolean"
+          },
+          "start_speech_wav": {
+            "description": "Start speech url",
+            "type": "string"
+          },
+          "gender": {
+            "description": "The gender",
+            "type": "string"
+          },
+          "actions": {
+            "description": "The actions",
+            "type": "array"
+          },
+          "goal": {
+            "description": "The goal of the assistant",
+            "type": "string"
+          },
+          "start_speech": {
+            "description": "Start speech",
+            "type": "string"
+          },
+          "voice_id": {
+            "description": "Voice id",
+            "type": "string"
+          },
+          "voice_name": {
+            "description": "Voice name",
+            "type": "string"
+          },
+          "voice_note": {
+            "description": "Voice note",
+            "type": "string"
+          },
+          "zapier_hook": {
+            "description": "Zapier hook",
+            "type": "string"
+          },
+          "script": {
+            "description": "Script",
+            "type": "string"
+          },
+          "knowledge_base_Id": {
+            "description": "Knowledge base",
+            "type": "string"
+          },
+          "maximum_time_per_call": {
+            "description": "Maximum time per call",
+            "type": "number"
+          },
+          "is_recording": {
+            "description": "Is recording",
+            "type": "boolean"
+          },
+          "is_voice_note": {
+            "description": "Is voice note",
+            "type": "boolean"
+          }
+        }
+      },
+      "NewPlayground": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Playground"
+          },
+          {
+            "required": ["id"],
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "Identification number of the playground",
                 "type": "integer",
                 "format": "int64"
               }
@@ -169,10 +993,7 @@
         ]
       },
       "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
+        "required": ["error", "message"],
         "type": "object",
         "properties": {
           "error": {

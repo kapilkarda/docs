@@ -5,7 +5,7 @@
     "dark": "/logo/dark_logo.png",
     "light": "/logo/light_logo.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "colors": {
     "primary": "#14bfff",
     "light": "#14bfff",
@@ -37,14 +37,14 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
       "name": "Dashboard",
       "icon": "house",
       "url": "https://app.precallai.com/"
+    },
+    {
+      "name": "Join our Slack Community",
+      "icon": "slack",
+      "url": "https://join.slack.com/t/precallai/signup?x=x-p7247365724533-7243635585894-7273122139248"
     }
   ],
   "navigation": [
@@ -92,22 +92,65 @@
       ]
     },
     {
-      "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
+      "group": "Glossary",
+      "pages": ["general/glossary/faq"]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Community",
+
+      "pages": ["general/community/videos"]
+    },
+    {
+      "group": "Legal",
+
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "general/legal/privacy_policy",
+        "general/legal/terms_and_conditions"
       ]
+    },
+    {
+      "group": "Assistants",
+      "pages": [
+        "api-reference/assistants/get",
+        "api-reference/assistants/create",
+        "api-reference/assistants/update",
+        "api-reference/assistants/delete"
+      ]
+    },
+    {
+      "group": "Playground",
+      "pages": [
+        "api-reference/playground/getHistory",
+        "api-reference/playground/create"
+      ]
+    },
+    {
+      "group": "Dialers",
+      "pages": [
+        "api-reference/dialers/get",
+        "api-reference/dialers/create",
+        "api-reference/dialers/update",
+        "api-reference/dialers/delete"
+      ]
+    },
+    {
+      "group": "Contacts",
+      "pages": [
+        "api-reference/contacts/get",
+        "api-reference/contacts/create",
+        "api-reference/contacts/update",
+        "api-reference/contacts/delete"
+      ]
+    },
+    {
+      "group": "Campaigns",
+      "pages": ["api-reference/campaigns/get", "api-reference/campaigns/create"]
     }
   ],
   "footerSocials": {
     "facebook": "https://www.facebook.com/profile.php?id=61558206635365",
     "twitter": "https://twitter.com/precallai",
     "instagram": "https://www.instagram.com/precallai/",
-    "youtube": "https://www.youtube.com/@PreCallA"
+    "youtube": "https://www.youtube.com/@PreCallAI"
   }
 }
