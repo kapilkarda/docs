@@ -1,0 +1,98 @@
+---
+title: Assistant Actions
+description: ""
+---
+
+## In Assistants functionality :
+
+### Call Transfer:
+
+Below the recording option, you will find the "Call Transfer" option. Here, you can enter the transfer number so that when someone wants to call you back, they can do so.
+Add a description for the transfer number.
+
+### SMS Option:
+
+In the SMS option, the agent will send the user an SMS with the desired content when a specific condition is met.
+
+To set up the SMS option:
+
+Write the SMS Content - This is the text that will be sent to the user via SMS.
+Specify the Condition - Define the condition under which the SMS should be triggered, such as when a call is missed, a voicemail is left, or a specific keyword is detected in the conversation.
+
+You will see the next <span style={{ fontWeight: 800 }}>Info Extractor</span>. Here you can add the question in three ways:
+
+1. Yes/No Question: Add a question that can be answered with a simple "Yes" or "No".
+2. Single Choice: Provide multiple options for the user, but they can only select one.
+3. Open Question: Add an open-ended question allowing the user to provide a free answer.
+
+Here I want to add a Yes/No question.
+
+Now enter the identifier name, email, or anything that you want. I have a name, Allison, as the identifier. Add the question "Have you heard about PrecallAI before?". The question is now saved, and you can edit or delete it if needed. Add questions and options in the Single Choice and Open Question options, as per your preference then click Create.
+
+Here is the information in the correct format:
+
+### The next update is Zapier Hook.
+
+PreCallAI lets you set up actions like booking appointments and sending links through Zapier. Too many actions can confuse the AI, so keep the number of actions small for the best results.
+
+To set up a Zapier integration:
+
+1. Go to Zapier.com and sign in to your account.
+2. On the dashboard, click on the "Create" button to create a new Zap (automated workflow).
+3. For the trigger, select "Webhooks by Zapier" and choose the "Catch Hook" event, then click "Continue".
+4. In the "Test" step, you will find your Webhook URL. Copy this URL and paste it into the "Zapier Hook" field under the "Assistant" option in PreCallAI.
+
+By following these steps, you can integrate PreCallAI with Zapier and set up automated actions through the Zapier platform.
+
+### And the last update is Real-Time Booking
+
+In this update, you can schedule a booking during a call with Cal.com. To do this, you must enter your API Key and Cal event ID. Here are the steps to create an API Key by signing in at Cal.com.
+
+Steps to Create an API Key on Cal.com:
+
+1. Search for Cal.com:
+
+   - Open your browser and search for "Cal.com".
+
+2. Sign Up or Sign In:
+
+   - Click on the "Get Started" button.
+   - You can sign up by entering your username, email ID, and password or continue with Google or SAML.
+   - I prefer continuing with Google.
+
+3. Continue with Google:
+
+   - Select your Google account and continue.
+
+4. Profile Setup:
+
+   - You will need to provide some basic information to set up your profile. You can edit this information later.
+   - Follow these steps one by one:
+     - Enter your username and full name.
+     - Select your time zone as per your need.
+
+5. Connect Your Calendar:
+
+   - Connect your calendar to automatically check for busy times and new events as they’re scheduled.
+   - I prefer Google Calendar. When connecting, it will ask for your Gmail account. Confirm it and select what Cal.com can access according to your preference.
+
+6. Connect Video Apps:
+
+   - Connect your video apps to use them for your event types. Choose according to your needs.
+
+7. Define Availability:
+   - Define ranges of time when you are available. You can customize all of this later on the availability page.
+
+By following these steps, you will be able to set up your profile on Cal.com and generate an API Key needed for real-time booking.
+
+Now click on the meeting and you will get the call event ID in the URL in the numbers.
+
+For API click on the setting button and you will find the API Keys option, open it and create your first API Key.
+
+API keys allow you to make API calls for your account.
+
+Enter the name of the key, set the expiration date or allow never expires option to save it.
+
+Then you will get your API Key.
+
+Now enter the API Key and event ID, NEXT select your Timezone, initial booking date, description, and under what condition should it take place fill in all these required details. Save it.

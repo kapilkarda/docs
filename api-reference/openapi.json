@@ -158,6 +158,17 @@
     "/user/updateAssistant?id={id}": {
       "put": {
         "description": "Update a Assistant",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the assistant to update"
+          }
+        ],
         "requestBody": {
           "description": "Assistant to update",
           "content": {
@@ -203,8 +214,7 @@
             "description": "ID of assistant to delete",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -297,6 +307,17 @@
     "/dialer/update?id={id}": {
       "put": {
         "description": "Update a Dialer",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the dialer to update"
+          }
+        ],
         "requestBody": {
           "description": "Dialer to update",
           "content": {
@@ -342,8 +363,7 @@
             "description": "ID of dialer to delete",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -436,6 +456,17 @@
     "/contact/update?id={id}": {
       "put": {
         "description": "Update a Contact",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the contact to update"
+          }
+        ],
         "requestBody": {
           "description": "Contact to update",
           "content": {
@@ -481,8 +512,7 @@
             "description": "ID of contact to delete",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             }
           }
         ],
@@ -577,7 +607,6 @@
   "components": {
     "schemas": {
       "Campaign": {
-        "required": ["campaigns_name"],
         "type": "object",
         "properties": {
           "campaigns_name": {
@@ -659,20 +688,24 @@
             "$ref": "#/components/schemas/CampaignNew"
           },
           {
-            "required": ["id"],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the campaign",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
+            "type": "object"
           }
         ]
       },
       "Assistant": {
-        "required": ["name"],
+        "required": [
+          "type",
+          "name",
+          "company_name",
+          "gender",
+          "accent",
+          "goal",
+          "start_speech",
+          "voice_id",
+          "voice_name",
+          "script",
+          "maximum_time_per_call"
+        ],
         "type": "object",
         "properties": {
           "type": {
@@ -751,15 +784,7 @@
             "$ref": "#/components/schemas/Assistant"
           },
           {
-            "required": ["id"],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the assistant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
+            "type": "object"
           }
         ]
       },
@@ -769,15 +794,7 @@
             "$ref": "#/components/schemas/Assistant"
           },
           {
-            "required": ["id"],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the assistant",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
+            "type": "object"
           }
         ]
       },
@@ -819,15 +836,7 @@
             "$ref": "#/components/schemas/Dialer"
           },
           {
-            "required": ["id"],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the Dialer",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
+            "type": "object"
           }
         ]
       },
@@ -837,15 +846,7 @@
             "$ref": "#/components/schemas/Dialer"
           },
           {
-            "required": ["id"],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the Dialer",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
+            "type": "object"
           }
         ]
       },
@@ -869,15 +870,7 @@
             "$ref": "#/components/schemas/Contact"
           },
           {
-            "required": ["id"],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the Contact",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
+            "type": "object"
           }
         ]
       },
@@ -887,21 +880,23 @@
             "$ref": "#/components/schemas/Contact"
           },
           {
-            "required": ["id"],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the Contact",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
+            "type": "object"
           }
         ]
       },
 
       "Playground": {
-        "required": ["phone_number"],
+        "required": [
+          "phone_number",
+          "language",
+          "gender",
+          "goal",
+          "start_speech",
+          "voice_id",
+          "voice_name",
+          "script",
+          "maximum_time_per_call"
+        ],
         "type": "object",
         "properties": {
           "phone_number": {
@@ -980,15 +975,7 @@
             "$ref": "#/components/schemas/Playground"
           },
           {
-            "required": ["id"],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the playground",
-                "type": "integer",
-                "format": "int64"
-              }
-            }
+            "type": "object"
           }
         ]
       },

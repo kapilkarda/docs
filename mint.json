@@ -59,7 +59,14 @@
           "group": "Assistants",
           "pages": [
             "general/assistants/introduction",
-            "general/assistants/createAssistant",
+            {
+              "group": "Create Assistant",
+              "icon": "head-side",
+              "pages": [
+                "general/assistants/createAssistant",
+                "general/assistants/assistantAction"
+              ]
+            },
             "general/assistants/testAssistant",
             "general/assistants/script",
             "general/assistants/playground",
