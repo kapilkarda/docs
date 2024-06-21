@@ -53,6 +53,10 @@
       "pages": ["introduction", "ai-features"]
     },
     {
+      "group": "PreCallAi Enterprise",
+      "pages": ["general/enterprise/fineTuning", "general/enterprise/rateLimit"]
+    },
+    {
       "group": "General",
       "pages": [
         {
