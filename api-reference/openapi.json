@@ -87,6 +87,47 @@
         }
       }
     },
+    "/campaign/audiences?id={id}": {
+      "post": {
+        "description": "Returns all campaign's audiences from the system that the user has access to",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the campaign to get audiences"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Campaign audiences response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Audiences"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/user/listAssistant": {
       "get": {
         "description": "Returns all assistants from the system that the user has access to",
@@ -534,7 +575,109 @@
         }
       }
     },
-
+    "/contact/audience/list?id={id}": {
+      "post": {
+        "description": "Returns all contact's audiences from the system that the user has access to",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the contact to get audiences"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contact audiences response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ContactAudiences"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contact/audience/bulk-upload?id={id}": {
+      "post": {
+        "description": "Bulk upload contact's audiences",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the contact to get audiences"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload."
+                  }
+                },
+                "required": ["file"]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Contact audiences response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "File uploaded successfully."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/playground/list": {
       "get": {
         "description": "Returns all playgrounds from the system that the user has access to",
@@ -644,6 +787,63 @@
           "is_automation": {
             "description": "Is automation",
             "type": "boolean"
+          }
+        }
+      },
+      "Audiences": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "description": "First name",
+            "type": "string"
+          },
+          "last_name": {
+            "description": "Last name",
+            "type": "string"
+          },
+          "description": {
+            "description": "Description",
+            "type": "string"
+          },
+          "phone": {
+            "description": "phone number",
+            "type": "string"
+          },
+          "status": {
+            "description": "Status",
+            "type": "string"
+          },
+          "call_duration_in_sec": {
+            "description": "Call duration in second",
+            "type": "string"
+          },
+          "call_sentiment": {
+            "description": "Call sentiment",
+            "type": "string"
+          },
+          "calltranscribe": {
+            "description": "Call transcribe",
+            "type": "string"
+          },
+          "is_call_transferred": {
+            "description": "Call transferred action",
+            "type": "boolean"
+          },
+          "is_meeting_scheduled": {
+            "description": "Meeting scheduled action",
+            "type": "boolean"
+          },
+          "is_message_sent": {
+            "description": "Message sent action",
+            "type": "boolean"
+          },
+          "recording_url": {
+            "description": "Recording url",
+            "type": "string"
+          },
+          "error": {
+            "description": "Error",
+            "type": "string"
           }
         }
       },
@@ -883,6 +1083,39 @@
             "type": "object"
           }
         ]
+      },
+      "ContactAudiences": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "description": "First name",
+            "type": "string"
+          },
+          "last_name": {
+            "description": "Last name",
+            "type": "string"
+          },
+          "email": {
+            "description": "Email",
+            "type": "string"
+          },
+          "description": {
+            "description": "Description",
+            "type": "string"
+          },
+          "phone": {
+            "description": "phone number",
+            "type": "string"
+          },
+          "sync_by": {
+            "description": "Sync by",
+            "type": "string"
+          },
+          "id": {
+            "description": "Id",
+            "type": "string"
+          }
+        }
       },
 
       "Playground": {

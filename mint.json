@@ -154,12 +154,18 @@
         "api-reference/contacts/get",
         "api-reference/contacts/create",
         "api-reference/contacts/update",
-        "api-reference/contacts/delete"
+        "api-reference/contacts/delete",
+        "api-reference/contacts/audienceList",
+        "api-reference/contacts/bulkUpload"
       ]
     },
     {
       "group": "Campaigns",
-      "pages": ["api-reference/campaigns/get", "api-reference/campaigns/create"]
+      "pages": [
+        "api-reference/campaigns/get",
+        "api-reference/campaigns/create",
+        "api-reference/campaigns/audienceList"
+      ]
     }
   ],
   "footerSocials": {
