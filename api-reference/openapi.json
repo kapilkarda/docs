@@ -678,6 +678,148 @@
         }
       }
     },
+    "/contact/audience/create?id={id}": {
+      "post": {
+        "description": "Creates a new Contact",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the contact to create audience"
+          }
+        ],
+        "requestBody": {
+          "description": "Contact to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactAudienceNew"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Create Contact audience response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Contact audience created successfully."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contact/audience/update?id={id}": {
+      "put": {
+        "description": "Update Contact Audience",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the contact to update audience"
+          }
+        ],
+        "requestBody": {
+          "description": "Contact to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactAudienceNew"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Update Contact audience response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Contact audience updated successfully."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contact/audience/delete?id={id}": {
+      "delete": {
+        "description": "Delete a single contact audience based on the ID supplied",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of contact audience to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Contact audience deleted",
+            "content": {}
+          },
+          "400": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/playground/list": {
       "get": {
         "description": "Returns all playgrounds from the system that the user has access to",
@@ -1113,6 +1255,31 @@
           },
           "id": {
             "description": "Id",
+            "type": "string"
+          }
+        }
+      },
+      "ContactAudienceNew": {
+        "type": "object",
+        "properties": {
+          "first_name": {
+            "description": "First name",
+            "type": "string"
+          },
+          "last_name": {
+            "description": "Last name",
+            "type": "string"
+          },
+          "email": {
+            "description": "Email",
+            "type": "string"
+          },
+          "description": {
+            "description": "Description",
+            "type": "string"
+          },
+          "phone": {
+            "description": "phone number",
             "type": "string"
           }
         }

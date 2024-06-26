@@ -155,7 +155,10 @@
         "api-reference/contacts/create",
         "api-reference/contacts/update",
         "api-reference/contacts/delete",
+        "api-reference/contacts/createAudience",
         "api-reference/contacts/audienceList",
+        "api-reference/contacts/updateAudience",
+        "api-reference/contacts/deleteAudience",
         "api-reference/contacts/bulkUpload"
       ]
     },
