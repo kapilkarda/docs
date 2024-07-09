@@ -103,6 +103,16 @@
       ]
     },
     {
+      "group": "Customization",
+      "pages": [
+        "general/profileMenu/affiliates",
+        "general/profileMenu/knowledgebase",
+        "general/profileMenu/integrations",
+        "general/profileMenu/billing",
+        "general/profileMenu/support"
+      ]
+    },
+    {
       "group": "Glossary",
       "pages": ["general/glossary/faq"]
     },
