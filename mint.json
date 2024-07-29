@@ -57,7 +57,22 @@
       "pages": ["general/enterprise/fineTuning", "general/enterprise/rateLimit"]
     },
     {
-      "group": "General",
+      "group": "Contacts Management CRM",
+      "pages": [
+        "general/contacts/contacts",
+
+        {
+          "group": "Segments",
+          "pages": [
+            "general/contactList/introduction",
+            "general/contactList/addContacts",
+            "general/contactList/modifyContacts"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Call Platforms",
       "pages": [
         {
           "group": "Assistants",
@@ -85,14 +100,6 @@
           ]
         },
         "general/inboundAssistant",
-        {
-          "group": "Contact List",
-          "pages": [
-            "general/contactList/introduction",
-            "general/contactList/addContacts",
-            "general/contactList/modifyContacts"
-          ]
-        },
         {
           "group": "Campaigns",
           "pages": [
