@@ -27,7 +27,7 @@
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://app.precallai.com"
+    "url": "https://app.precallai.com/admin/dashboard"
   },
   "tabs": [
     {
@@ -39,7 +39,7 @@
     {
       "name": "Dashboard",
       "icon": "house",
-      "url": "https://app.precallai.com/"
+      "url": "https://app.precallai.com/admin/dashboard"
     },
     {
       "name": "Join our Slack Community",
