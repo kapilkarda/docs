@@ -60,15 +60,16 @@
       "group": "Contacts Management CRM",
       "pages": [
         "general/contacts/contacts",
-
+        "general/contacts/companies",
         {
           "group": "Segments",
           "pages": [
-            "general/contactList/introduction",
-            "general/contactList/addContacts",
-            "general/contactList/modifyContacts"
+            "general/contacts/segmentList/introduction",
+            "general/contacts/segmentList/addContacts",
+            "general/contacts/segmentList/modifyContacts"
           ]
-        }
+        },
+        "general/contacts/deals"
       ]
     },
     {
@@ -86,12 +87,10 @@
                 "general/assistants/assistantAction"
               ]
             },
-            "general/assistants/testAssistant",
-            "general/assistants/script",
-            "general/assistants/playground",
-            "general/assistants/goal"
+            "general/assistants/testAssistant"
           ]
         },
+        "general/assistants/playground",
         {
           "group": "Dialers",
           "pages": [
@@ -99,7 +98,6 @@
             "general/dialer/integrateDialer"
           ]
         },
-        "general/inboundAssistant",
         {
           "group": "Campaigns",
           "pages": [

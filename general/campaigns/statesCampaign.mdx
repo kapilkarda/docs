@@ -4,33 +4,58 @@ description: "The page explains the different states a campaign can have"
 icon: "building"
 ---
 
-These are the following campaign states you'd be seeing while using PreCall AI
+## States of a campaign
+
+Campaign Details
+
+When you click on a completed or created campaign, you can view the following details:
+
+Total Calls Placed: The total number of calls made during the campaign.
+
+Total Calls Answered: The number of calls that were answered.
+
+Total Voice Consumed: The total duration of voice used in the campaign.
+
+Call Details
+
+For each call, the following information is available:
+
+Name: The name of the contact.
+
+Phone Number: The contact's phone number.
+
+Call Duration: The length of the call.
+
+Called At: The date and time the call was made.
+
+Status: The status of the call, which can include:
 
 <ul>
-<li><code style={{ color: "#22c55e", border: "1px solid #22c55e" }}>Start</code></li> <br />
-
+<li><code style={{ color: "#22c55e", border: "1px solid #22c55e" }}>Completed</code></li>
 <li>
-  <code style={{ color: "#ca8a04", border: "1px solid #ca8a04" }}>Paused</code>
-</li> <br />
-
-<li>
-  <code style={{ color: "#3b82f6", border: "1px solid #3b82f6" }}>Running</code>
+  <code style={{ color: "#3b82f6", border: "1px solid #3b82f6" }}>In Progress</code>
 </li>
+<li>
+  <code style={{ color: "#ca8a04", border: "1px solid #ca8a04" }}>Failed</code>
+</li>
+<li><code style={{ color: "#ef4444", border: "1px solid #ef4444" }}>Error</code></li>
+
 <br />
 
-<li><code style={{ color: "#ef4444", border: "1px solid #ef4444" }}>Completed</code></li>
 </ul>
-When you create a new campaign, it's in its <code style={{ color: "#22c55e", border: "1px solid #22c55e" }}>Start</code> state i.e. this campaign is yet to be started. When you start the campaign, its state will change to <code style={{ color: "#3b82f6", border: "1px solid #3b82f6" }}>Running</code> and
-the [Assistant](https://app.precallai.com/admin/assistants) start calling your customers
-(added through your [ContactList](https://app.precallai.com/admin/contact-list))
+Sentiment: The sentiment of the call, is categorized as:
 
-If at any point you'd like to pause the campaign, you can simply click on the <code style={{ color: "#ca8a04", border: "1px solid #ca8a04" }}>PAUSE</code> button. Additionally, if we have no more users to call, we mark the campaign status as <code style={{ color: "#ef4444", border: "1px solid #ef4444" }}>Completed</code>
+<ul>
+<li><code style={{ color: "#22c55e", border: "1px solid #22c55e" }}>Positive</code></li>
+<li><code style={{ color: "#ef4444", border: "1px solid #ef4444" }}>Negative</code></li>
+<li>
+  <code style={{ color: "#3b82f6", border: "1px solid #3b82f6" }}>Neutral</code>
+</li>
 
-<Warning>
-  One more thing you'd eventually come across is the quota limit exceeding. This
-  will happen when the campaign is set to{" "}
-  <code style={{ color: "#ca8a04", border: "1px solid #ca8a04" }}>PAUSE</code>{" "}
-  state by us because your available minutes for calling have been fully
-  utilized. You'd not be able to place any more calls unless you upgrade your
-  plan or the quota renews automatically at end of the billing period.{" "}
-</Warning>
+<br />
+
+</ul>
+
+Actions
+
+Feedback: You can provide feedback for each call, including a written response and a rating.
