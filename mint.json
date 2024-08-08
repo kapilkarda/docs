@@ -104,7 +104,8 @@
             "general/campaigns/introduction",
             "general/campaigns/statesCampaign"
           ]
-        }
+        },
+        "general/callLogs"
       ]
     },
     {
@@ -112,7 +113,24 @@
       "pages": [
         "general/profileMenu/affiliates",
         "general/profileMenu/knowledgebase",
-        "general/profileMenu/integrations",
+        {
+          "group": "Integrations",
+          "pages": [
+            "general/integrations/introduction",
+            "general/integrations/hubspot",
+            "general/integrations/salesforce",
+            "general/integrations/smtp",
+            {
+              "group": "WhatsApp",
+              "pages": [
+                "general/integrations/whatsapp",
+                "general/integrations/whatsappBusinessApiSetup",
+                "general/integrations/whatsappAccessToken"
+              ]
+            },
+            "general/integrations/gohighlevel"
+          ]
+        },
         "general/profileMenu/billing",
         "general/profileMenu/support"
       ]
