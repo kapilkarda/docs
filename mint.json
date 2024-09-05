@@ -182,17 +182,17 @@
       ]
     },
     {
-      "group": "Contacts",
+      "group": "Segments",
       "pages": [
-        "api-reference/contacts/get",
-        "api-reference/contacts/create",
-        "api-reference/contacts/update",
-        "api-reference/contacts/delete",
-        "api-reference/contacts/createAudience",
-        "api-reference/contacts/audienceList",
-        "api-reference/contacts/updateAudience",
-        "api-reference/contacts/deleteAudience",
-        "api-reference/contacts/bulkUpload"
+        "api-reference/segments/get",
+        "api-reference/segments/create",
+        "api-reference/segments/update",
+        "api-reference/segments/delete",
+        "api-reference/segments/createAudience",
+        "api-reference/segments/audienceList",
+        "api-reference/segments/updateAudience",
+        "api-reference/segments/deleteAudience",
+        "api-reference/segments/bulkUpload"
       ]
     },
     {

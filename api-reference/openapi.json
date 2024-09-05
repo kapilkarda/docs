@@ -426,7 +426,7 @@
         }
       }
     },
-    "/contact/list": {
+    "/segment/list": {
       "get": {
         "description": "Returns all Contacts from the system that the user has access to",
         "responses": {
@@ -456,7 +456,7 @@
         }
       }
     },
-    "/contact/create": {
+    "/segment/create": {
       "post": {
         "description": "Creates a new Contact",
         "requestBody": {
@@ -494,7 +494,7 @@
         }
       }
     },
-    "/contact/update?id={id}": {
+    "/segment/update?id={id}": {
       "put": {
         "description": "Update a Contact",
         "parameters": [
@@ -543,7 +543,7 @@
         }
       }
     },
-    "/contact/delete?id={id}": {
+    "/segment/delete?id={id}": {
       "delete": {
         "description": "Deletes a single contact based on the ID supplied",
         "parameters": [
@@ -575,7 +575,7 @@
         }
       }
     },
-    "/contact/audience/list?id={id}": {
+    "/segment/contact/list?id={id}": {
       "post": {
         "description": "Returns all contact's audiences from the system that the user has access to",
         "parameters": [
@@ -616,7 +616,7 @@
         }
       }
     },
-    "/contact/audience/bulk-upload?id={id}": {
+    "/segment/contact/bulk-upload?id={id}": {
       "post": {
         "description": "Bulk upload contact's audiences",
         "parameters": [
@@ -678,7 +678,7 @@
         }
       }
     },
-    "/contact/audience/create?id={id}": {
+    "/segment/contact/create?id={id}": {
       "post": {
         "description": "Creates a new Contact",
         "parameters": [
@@ -733,7 +733,7 @@
         }
       }
     },
-    "/contact/audience/update?id={id}": {
+    "/segment/contact/update?id={id}": {
       "put": {
         "description": "Update Contact Audience",
         "parameters": [
@@ -788,7 +788,7 @@
         }
       }
     },
-    "/contact/audience/delete?id={id}": {
+    "/segment/contact/delete?id={id}": {
       "delete": {
         "description": "Delete a single contact audience based on the ID supplied",
         "parameters": [
@@ -1287,85 +1287,38 @@
 
       "Playground": {
         "required": [
+          "first_name",
+          "last_name",
+          "email",
           "phone_number",
-          "language",
-          "gender",
-          "goal",
-          "start_speech",
-          "voice_id",
-          "voice_name",
-          "script",
-          "maximum_time_per_call"
+          "assistant_id",
+          "dialer_id"
         ],
         "type": "object",
         "properties": {
+          "first_name": {
+            "description": "The first name",
+            "type": "string"
+          },
+          "last_name": {
+            "description": "The last name",
+            "type": "string"
+          },
+          "email": {
+            "description": "The email",
+            "type": "string"
+          },
           "phone_number": {
             "description": "Phone numbers",
             "type": "array"
           },
-          "language": {
-            "description": "Language",
-            "type": "string"
-          },
-          "is_start_speech_update": {
-            "description": "false",
-            "type": "boolean"
-          },
-          "start_speech_wav": {
-            "description": "Start speech url",
-            "type": "string"
-          },
-          "gender": {
-            "description": "The gender",
-            "type": "string"
-          },
-          "actions": {
-            "description": "The actions",
+          "assistant_id": {
+            "description": "Assistant",
             "type": "array"
           },
-          "goal": {
-            "description": "The goal of the assistant",
-            "type": "string"
-          },
-          "start_speech": {
-            "description": "Start speech",
-            "type": "string"
-          },
-          "voice_id": {
-            "description": "Voice id",
-            "type": "string"
-          },
-          "voice_name": {
-            "description": "Voice name",
-            "type": "string"
-          },
-          "voice_note": {
-            "description": "Voice note",
-            "type": "string"
-          },
-          "zapier_hook": {
-            "description": "Zapier hook",
-            "type": "string"
-          },
-          "script": {
-            "description": "Script",
-            "type": "string"
-          },
-          "knowledge_base_Id": {
-            "description": "Knowledge base",
-            "type": "string"
-          },
-          "maximum_time_per_call": {
-            "description": "Maximum time per call",
-            "type": "number"
-          },
-          "is_recording": {
-            "description": "Is recording",
-            "type": "boolean"
-          },
-          "is_voice_note": {
-            "description": "Is voice note",
-            "type": "boolean"
+          "dialer_id": {
+            "description": "Dialer",
+            "type": "array"
           }
         }
       },
