@@ -128,7 +128,8 @@
                 "general/integrations/whatsappAccessToken"
               ]
             },
-            "general/integrations/gohighlevel"
+            "general/integrations/gohighlevel",
+            "general/integrations/elevenLabs"
           ]
         },
         "general/profileMenu/billing",
