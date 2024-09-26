@@ -1260,6 +1260,7 @@
         }
       },
       "ContactAudienceNew": {
+        "required": ["first_name", "last_name", "email", "phone"],
         "type": "object",
         "properties": {
           "first_name": {
@@ -1274,12 +1275,24 @@
             "description": "Email",
             "type": "string"
           },
+          "phone": {
+            "description": "phone number",
+            "type": "string"
+          },
           "description": {
             "description": "Description",
             "type": "string"
           },
-          "phone": {
-            "description": "phone number",
+          "job_title": {
+            "description": "Job title",
+            "type": "string"
+          },
+          "lifecycle_stage": {
+            "description": "Lifecycle stage",
+            "type": "string"
+          },
+          "lead_status": {
+            "description": "Lead status",
             "type": "string"
           }
         }

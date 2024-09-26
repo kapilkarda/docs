@@ -132,7 +132,8 @@
               ]
             },
             "general/integrations/gohighlevel",
-            "general/integrations/elevenLabs"
+            "general/integrations/elevenLabs",
+            "general/integrations/cartesia"
           ]
         },
         "general/profileMenu/billing",
