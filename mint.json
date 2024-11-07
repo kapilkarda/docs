@@ -45,9 +45,9 @@
       "url": "https://app.precallai.com/admin/dashboard"
     },
     {
-      "name": "Join our Slack Community",
-      "icon": "slack",
-      "url": "https://join.slack.com/t/precallai/signup?x=x-p7247365724533-7243635585894-7273122139248"
+      "name": "Join our Discord Community",
+      "icon": "discord",
+      "url": "https://discord.gg/mqXRsFfu"
     }
   ],
   "navigation": [
