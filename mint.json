@@ -71,8 +71,7 @@
             "general/contacts/segmentList/addContacts",
             "general/contacts/segmentList/modifyContacts"
           ]
-        },
-        "general/contacts/deals"
+        }
       ]
     },
     {
